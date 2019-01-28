@@ -1,0 +1,41 @@
+{
+  "name": "testnodets",
+  "version": "1.0.0",
+  "description": "NodeJS(TS) app with auth",
+  "main": "lib/server.js",
+  "scripts": {
+    "start": "npm run build:live",
+    "dev": "tsc --watch & nodemon dist",
+    "build": "tsc",
+    "lint": "eslint src --ext ts",
+    "tsc": "tsc"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "author": "Potapov N.A.",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "nodemon": "^1.18.9",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.3",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jwt-simple": "^0.5.5",
+    "kerberos": "^1.1.2",
+    "moment": "^2.24.0",
+    "mongodb": "^3.1.12",
+    "mongoose": "^5.4.4",
+    "mongoose-paginate": "^5.0.3",
+    "morgan": "^1.9.1",
+    "tslint": "^5.12.1"
+  }
+}
