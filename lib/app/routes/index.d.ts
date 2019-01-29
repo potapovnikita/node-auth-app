@@ -1,1 +1,1 @@
-declare const noteRoutes: any;
+export {};

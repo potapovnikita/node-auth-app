@@ -1,16 +1,20 @@
-const mongoose = require('mongoose')
-const Promise = require('bluebird')
-const config = require('../config/db')
+import mongoose from 'mongoose';
+import { Promise } from 'bluebird';
+import { config } from '../config/db';
 
 const inspect = require('../services/inspect');
 
-mongoose(Promise.promisifyAll);
+Promise.promisifyAll(mongoose);
 
-mongoose.connect(config.url, {
+mongoose.connect(config.MONGO_URI, {
     autoReconnect: true,
     reconnectInterval: 100,
     reconnectTries: 1000,
     useNewUrlParser: true,
-}).catch(inspect);
+})
+    .then(() => {
+        console.log('Success connect to MongoDb');
+    })
+    .catch(inspect);
 
 export default mongoose;
