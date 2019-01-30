@@ -1,32 +1,28 @@
 import * as express from 'express';
-import { Schema, Document, model, PaginateModel, Model } from 'mongoose';
+import { Schema, Document, model, PaginateModel } from 'mongoose';
 import mongoose from '../../libs/mongoose';
 import mongoosePaginate from 'mongoose-paginate';
 import * as bcrypt from 'bcrypt';
-import * as uuid from 'shortid';
-// import * as crypt from 'crypto-js';
-// import { value as hashValue } from '../../services/random';
+// import * as uuid from 'shortid';
 
 const SALT_WORK_FACTOR = 10;
 
 export interface IUser extends Document {
+    id: number;
     name: string;
-    birthday: Date;
-    sex: string;
+    birthday?: Date;
+    sex?: string;
     email: string;
     password: string;
-    isBlocked: boolean;
+    isBlocked?: boolean;
     comparePassword: (password: string, callback: Function) => {};
 }
 
 const userSchema: Schema = new mongoose.Schema({
-    uuid: {
-        default: uuid.generate,
-        index: true,
+    name: {
         type: String,
-        unique: true,
+        required: 'NameInvalid',
     },
-    name: String,
     birthday: Date,
     sex: String,
     email: {

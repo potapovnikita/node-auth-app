@@ -1,13 +1,18 @@
 import * as express from 'express';
+import { ensureAuthenticated } from '../middlewares';
 
-import { ensureAuthenticated, checkUniqueLigin } from '../middlewares';
+import auth from './auth';
+import user from './user';
 
-import { signup, signin } from '../controllers/auth';
+export const routes = (app: express.Application) => {
+    /** Unsecured REST **/
+    app.use('/auth', auth);
 
-module.exports = (app: express.Application) => {
-    app.post('/auth/signin', signin);
-    app.post('/auth/signup', checkUniqueLigin, signup);
-    // app.post('/auth/signout', ensureAuthenticated, signout);
-    // app.post('/users/update', ensureAuthenticated, Users.update);
-    // app.get('/users/list', ensureAuthenticated, Users.list);
+    /** Secured REST **/
+    app.use('/users', ensureAuthenticated, user);
+
+    /** Undefined REST **/
+    app.use('*', (req, res, next) => {
+        res.sendStatus(404);
+    });
 };

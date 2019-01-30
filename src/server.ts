@@ -1,8 +1,8 @@
-const express = require('express');
-const MongoClient = require('mongodb').MongoClient;
-const bodyParser  = require('body-parser');
-const logger = require('morgan');
-const cors = require('cors')
+import express from 'express';
+import bodyParser from'body-parser';
+import logger from 'morgan';
+import cors from 'cors';
+import { routes } from './app/routes';
 
 const app = express();
 
@@ -15,10 +15,10 @@ app.use(cors({
 }));
 
 app.use(logger('dev'));
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-require('./app/routes')(app, {});
+routes(app);
 
 app.listen(port, (err: any) => {
     if (err) return console.log(err);

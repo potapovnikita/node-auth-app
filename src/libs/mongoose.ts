@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { Promise } from 'bluebird';
-import { config } from '../config/db';
+import { config } from '../config/index';
 
 const inspect = require('../services/inspect');
 
@@ -16,5 +16,7 @@ mongoose.connect(config.MONGO_URI, {
         console.log('Success connect to MongoDb');
     })
     .catch(inspect);
+
+mongoose.set('useCreateIndex', true);
 
 export default mongoose;
