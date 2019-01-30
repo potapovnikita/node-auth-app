@@ -1,10 +1,12 @@
 # dependencies
 node_modules
 
+#bundles
+lib
+
 # logs
 npm-debug.log
 
 .DS_Store
 .idea
 .idea/vcs.xml
-lib
