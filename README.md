@@ -9,6 +9,27 @@ Users App Server
 * [TSLint](https://palantir.github.io/tslint)
 
 
+### Run app
+npm i
+mongod
+npm run build:live
+app start on localhost:8000
+
+### Dev mode
+npm i
+mongod
+npm run dev
+app start on localhost:8000
+
+
+"start": "npm run build:live",
+    "dev": "tsc --watch & nodemon dist",
+    "build": "tsc",
+    "build:live": "nodemon dist",
+    "lint": "eslint src --ext ts",
+    "tsc": "tsc"
+
+
 ### API
 
 #### Authorisation
