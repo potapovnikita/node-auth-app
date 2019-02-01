@@ -10,16 +10,21 @@ Users App Server
 
 
 ### Run app
+```console
 npm i
 mongod
 npm run build:live
 app start on localhost:8000
+```
 
 ### Dev mode
+
+```console
 npm i
 mongod
 npm run dev
 app start on localhost:8000
+```
 
 
 "start": "npm run build:live",
