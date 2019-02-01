@@ -51,7 +51,7 @@ export const editUserData = (req: IRequest, res: express.Response) => {
 };
 
 /**
- * Get user data (for auth user )
+ * Get user data (for auth user)
  * @param {IRequest} req
  * @param {e.Response} res
  */
