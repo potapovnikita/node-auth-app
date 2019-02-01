@@ -8,13 +8,15 @@ Users App Server
 * [ESLint](https://eslint.org)
 * [TSLint](https://palantir.github.io/tslint)
 
+
+### API
+
+#### Authorisation
 HTTP | Url | Description | Input params | Output params
 |---|---|---|---|---|
 | POST | /auth/signin | Login in app | (string) email, (string) password | -
 | POST | /auth/signup | Registry in app | (string) name, (string) email, (string) password, ('male', 'female') sex, (boolean) isBlocked, (date) birthday | (boolean) auth, (string) accessToken
 
-
-### API
 
 ####User
 Need jwt token in header 'Authorisation'
@@ -26,7 +28,7 @@ HTTP | Url | Description | Input params | Output params
 | GET | /users/getUsersList | Get user list | - | [User]
 
 User:
-```json
+```
 {
     "id": string,
     "name": string,
