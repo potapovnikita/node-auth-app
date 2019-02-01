@@ -1,5 +1,5 @@
 {
-  "name": "nodejs auth app",
+  "name": "node_auth_app",
   "version": "1.0.0",
   "description": "NodeJS(TS) app with auth",
   "main": "lib/server.js",
@@ -7,6 +7,7 @@
     "start": "npm run build:live",
     "dev": "tsc --watch & nodemon dist",
     "build": "tsc",
+    "build:live": "nodemon dist",
     "lint": "eslint src --ext ts",
     "tsc": "tsc"
   },

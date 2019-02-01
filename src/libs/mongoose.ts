@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import { Promise } from 'bluebird';
-import { config } from '../config/index';
+import { config } from '../config/';
 
 const inspect = require('../services/inspect');
 
