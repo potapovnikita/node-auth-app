@@ -27,14 +27,6 @@ app start on localhost:8000
 ```
 
 
-"start": "npm run build:live",
-    "dev": "tsc --watch & nodemon dist",
-    "build": "tsc",
-    "build:live": "nodemon dist",
-    "lint": "eslint src --ext ts",
-    "tsc": "tsc"
-
-
 ### API
 
 #### Authorisation
